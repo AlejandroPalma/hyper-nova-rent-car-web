@@ -1,0 +1,115 @@
+<form (submit)="false"
+      [formGroup]="signUp">
+
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <mat-form-field class="signInput">
+                <input matInput
+                       placeholder="Nombre"
+                       formControlName="name"
+                       required>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <mat-form-field class="signInput">
+                <input matInput
+                       placeholder="Correo Electronico"
+                       formControlName="email"
+                       required>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <mat-form-field class="signInput">
+                <input matInput
+                       placeholder="Ingrese Contraseña"
+                       [type]="hide ? 'password' : 'text'"
+                       formControlName="password"
+                       required>
+                <button class=""
+                        mat-icon-button
+                        matSuffix
+                        (click)="hide = !hide"
+                        [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                    <mat-icon>
+                        {{hide ? 'visibility_off' : 'visibility'}}
+                    </mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <mat-form-field class="signInput">
+                <input matInput
+                       [matDatepicker]="picker"
+                       placeholder="Fecha de Nacimiento"
+                       formControlName="birthDate"
+                       required>
+                <mat-datepicker-toggle matSuffix
+                                       [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <mat-form-field class="signInput">
+                <mat-label>Tipo de Documento de identificación</mat-label>
+                <mat-select formControlName="idType"
+                            required>
+                    <mat-option *ngFor="let idType of idTypes; let i = index"
+                                [value]="i">
+                        {{idType}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <mat-form-field class="signInput">
+                <input matInput
+                       placeholder="Número del documento"
+                       formControlName="id"
+                       required>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <mat-form-field class="signInput">
+                <mat-label>Sexo</mat-label>
+                <mat-select formControlName="gender"
+                            required>
+                    <mat-option *ngFor="let gender of genders; let i = index"
+                                [value]="i">
+                        {{gender}}
+                    </mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+
+        <div class="col-md-3">
+
+            <button type="button"
+                    class="btn btn-outline-success sign-up-button"
+                    (click)="onSubmit()">Registrarse</button>
+
+        </div>
+    </div>
+
+</form>

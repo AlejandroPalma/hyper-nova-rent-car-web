@@ -1,0 +1,52 @@
+<form (submit)="false"
+      [formGroup]="loginForm">
+    <div class="row justify-content-md-center">
+
+        <div class="col-md-4">
+
+            <mat-form-field class="login-input">
+                <input matInput
+                       placeholder="Usuario"
+                       formControlName="user"
+                       required>
+                <mat-error *ngIf="loginForm.get('user').hasError('required')">
+                    Requerido
+                </mat-error>
+            </mat-form-field>
+
+
+        </div>
+
+    </div>
+
+    <div class="row justify-content-md-center">
+
+        <div class="col-md-4">
+
+            <mat-form-field class="login-input">
+                <input matInput
+                       placeholder="Contraseña"
+                       [type]="hide ? 'password' : 'text'"
+                       formControlName="password"
+                       required>
+                <button class=""
+                        mat-icon-button
+                        matSuffix
+                        (click)="hide = !hide"
+                        [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                    <mat-icon>
+                        {{hide ? 'visibility_off' : 'visibility'}}
+                    </mat-icon>
+                </button>
+                <mat-error *ngIf="loginForm.get('password').invalid">
+                    {{ loginForm.get('password').hasError('required') ? 'Requerido' : loginForm.get('password').hasError('maxlength') ? 'El maximo de caracteres son 20' : 'El minimo de caracteres debe ser de 8'}}
+                </mat-error>
+            </mat-form-field>
+
+        </div>
+
+    </div>
+
+
+</form>
