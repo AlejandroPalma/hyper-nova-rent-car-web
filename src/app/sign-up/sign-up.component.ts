@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, FormControl, Validators } from '@angular/forms';
-import { AuthService } from '../providers/auth/auth.service';
-import { User } from '../interfaces/user';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {Router} from '@angular/router';
+import {User} from '../interfaces/user';
+import {AuthService} from '../providers/auth/auth.service';
+import {UserService} from '../providers/user/user.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -19,6 +20,7 @@ export class SignUpComponent implements OnInit {
   constructor(
     private signBuilder: FormBuilder,
     private authService: AuthService,
+    private userService: UserService,
     private router: Router
   ) { }
 
@@ -67,9 +69,14 @@ export class SignUpComponent implements OnInit {
       gender: this.signUp.controls['gender'].value
     };
 
-    this.authService.signUp(user).then(() => {
+    this.authService.signUp(user).then((credentials: firebase.auth.UserCredential) => {
 
-      this.router.navigate(['/']);
+      user.idUser = credentials.user.uid;
+
+      this.userService.setUser(user).then(() => {
+
+        this.router.navigate(['/']);
+      });
     });
   }
 
