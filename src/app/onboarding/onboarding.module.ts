@@ -27,7 +27,7 @@ import {SignUpComponent} from './sign-up/sign-up.component';
     ReactiveFormsModule
   ],
   providers: [
-    MatDatepickerModule,
+    MatDatepickerModule
   ]
 })
 export class OnboardingModule { }

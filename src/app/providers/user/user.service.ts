@@ -17,12 +17,13 @@ export class UserService {
     private firebaseDatabase: AngularFireDatabase
   ) { }
 
-  public setloggedUser(user: User) {
+  public setLoggedUser(user: User) {
 
     this.loggedUser = user;
   }
 
-  public getloggedUser() {
+  public getLoggedUser(): User {
+
     return this.loggedUser;
   }
 

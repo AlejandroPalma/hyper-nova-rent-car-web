@@ -21,9 +21,8 @@ export class DashboardComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    
-    this.user = this.userService.getloggedUser();
-    
+
+    this.user = this.userService.getLoggedUser();
   }
 
   public logOut(): void {
