@@ -1,44 +1,27 @@
-import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
-import { User } from 'src/app/interfaces/user';
-import { AngularFireDatabase, AngularFireList } from '@angular/fire/database';
+import {Injectable} from '@angular/core';
+import {AngularFireAuth} from '@angular/fire/auth';
+import {User} from 'src/app/interfaces/user';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  users: AngularFireList<User>;
-
   constructor(
-    private firebaseAuth: AngularFireAuth,
-    private firebaseDatabase: AngularFireDatabase) {
+    private firebaseAuth: AngularFireAuth
+  ) { }
 
-      this.users = this.firebaseDatabase.list('/users');
-    }
+  public async signUp(user: User): Promise<firebase.auth.UserCredential> {
 
-  public async signUp(user: User): Promise<User> {
-
-    return this.firebaseAuth.auth.createUserWithEmailAndPassword(
+    return await this.firebaseAuth.auth.createUserWithEmailAndPassword(
       user.email,
       user.password
-    ).then((credentials: firebase.auth.UserCredential) => {
-
-      user.idUser = credentials.user.uid;
-
-      this.users.push(user);
-
-      return Promise.resolve(user);
-    }).catch(() => {
-
-      return Promise.reject('Signup failed');
-    });
+    );
   }
 
-  // public async login (user:user): Promise<User> { 
-  //   return this.firebaseAuth.auth.signInWithEmailAndPassword(
-  //     user.email,
-  //     user.password
-  //   ).then()
-  // }
+  public async login(email: string, password: string): Promise<firebase.auth.UserCredential> {
+
+    return await this.firebaseAuth.auth
+      .signInWithEmailAndPassword(email, password);
+  }
 }

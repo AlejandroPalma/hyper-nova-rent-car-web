@@ -1,4 +1,4 @@
-.login-input {
+.login__input {
     width: 100%;
 }
 
@@ -6,4 +6,8 @@
     font-size: 120px; 
     height: 120px;
     width: 120px;
+}
+
+.login__button {
+    width: 100%;
 }
