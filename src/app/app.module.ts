@@ -7,6 +7,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {environment} from '../environments/environment';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
+import {AuthService} from './providers/auth/auth.service';
+import {UserService} from './providers/user/user.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,11 @@ import {AppComponent} from './app.component';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule
   ],
-  providers: [AngularFireAuth],
+  providers: [
+    AngularFireAuth,
+    AuthService,
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

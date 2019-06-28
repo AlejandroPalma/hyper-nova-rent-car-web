@@ -51,7 +51,7 @@ export class LoginComponent implements OnInit {
 
       this.userService.getByKey(credentials.user.uid).subscribe((user: User) => {
 
-        this.userService.setloggeduser(user);
+        this.userService.setloggedUser(user);
         this.router.navigate(['/dashboard']);
       });
     });

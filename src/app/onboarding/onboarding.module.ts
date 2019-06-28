@@ -4,8 +4,6 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {MatDatepickerModule, MatInputModule, MatNativeDateModule, MatSelectModule} from '@angular/material';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatIconModule} from '@angular/material/icon';
-import {AuthService} from '../providers/auth/auth.service';
-import {UserService} from '../providers/user/user.service';
 import {LoginComponent} from './login/login.component';
 import {OnboardingRoutingModule} from './onboarding-routing.module';
 import {OnboardingComponent} from './onboarding.component';
@@ -30,8 +28,6 @@ import {SignUpComponent} from './sign-up/sign-up.component';
   ],
   providers: [
     MatDatepickerModule,
-    AuthService,
-    UserService
   ]
 })
 export class OnboardingModule { }

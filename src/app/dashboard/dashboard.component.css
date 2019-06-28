@@ -18,4 +18,17 @@
 .app__center-icon {
     height: max-content;
     align-self: center;
+    font-size: 30px;
+    color: #6B818C;
+}
+
+.user__Info{
+    font-size: 15px;
+    align-self: center;
+    font-family: 'Abel', sans-serif;
+    font-weight: bold;
+}
+
+.icon__cursor{
+    cursor: pointer;
 }
