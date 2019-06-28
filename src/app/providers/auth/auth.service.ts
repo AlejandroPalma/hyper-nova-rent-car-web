@@ -35,10 +35,10 @@ export class AuthService {
     });
   }
 
-  public async login (user:user): Promise<User> { 
-    return this.firebaseAuth.auth.signInWithEmailAndPassword(
-      user.email,
-      user.password
-    ).then()
-  }
+  // public async login (user:user): Promise<User> { 
+  //   return this.firebaseAuth.auth.signInWithEmailAndPassword(
+  //     user.email,
+  //     user.password
+  //   ).then()
+  // }
 }

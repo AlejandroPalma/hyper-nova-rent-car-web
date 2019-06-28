@@ -33,6 +33,12 @@ export class SignUpComponent implements OnInit {
           Validators.required,
           Validators.email
         ])),
+        phone: new FormControl('', Validators.compose([
+          Validators.required,
+          Validators.pattern('\d'),
+          Validators.minLength(8),
+
+        ])),
         password: new FormControl('', Validators.compose([
           Validators.required,
           Validators.minLength(8),
@@ -60,6 +66,7 @@ export class SignUpComponent implements OnInit {
     const user: User = {
       name: this.signUp.controls['name'].value,
       email: this.signUp.controls['email'].value,
+      phone: this.signUp.controls['phone'].value,
       password: this.signUp.controls['password'].value,
       birthDate: this.signUp.controls['birthDate'].value,
       idType: this.signUp.controls['idType'].value,

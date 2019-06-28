@@ -1,3 +1,9 @@
 .login-input {
     width: 100%;
 }
+
+.icon_auto{
+    font-size: 120px; 
+    height: 120px;
+    width: 120px;
+}

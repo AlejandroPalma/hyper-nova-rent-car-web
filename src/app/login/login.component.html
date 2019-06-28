@@ -1,5 +1,14 @@
 <form (submit)="false"
       [formGroup]="loginForm">
+
+    <div class="row justify-content-md-center">
+        <div class="col-md-4 text-center">
+            <mat-icon class="icon_auto">
+                'directions_car'
+            </mat-icon>
+        </div>
+    </div>
+
     <div class="row justify-content-md-center">
 
         <div class="col-md-4">
@@ -13,8 +22,6 @@
                     Requerido
                 </mat-error>
             </mat-form-field>
-
-
         </div>
 
     </div>
@@ -29,7 +36,7 @@
                        [type]="hide ? 'password' : 'text'"
                        formControlName="password"
                        required>
-                <button class=""
+                <button class="icon_password"
                         mat-icon-button
                         matSuffix
                         (click)="hide = !hide"
@@ -38,6 +45,7 @@
                     <mat-icon>
                         {{hide ? 'visibility_off' : 'visibility'}}
                     </mat-icon>
+
                 </button>
                 <mat-error *ngIf="loginForm.get('password').invalid">
                     {{ loginForm.get('password').hasError('required') ? 'Requerido' : loginForm.get('password').hasError('maxlength') ? 'El maximo de caracteres son 20' : 'El minimo de caracteres debe ser de 8'}}

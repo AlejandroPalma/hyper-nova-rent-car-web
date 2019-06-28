@@ -8,6 +8,9 @@
                        placeholder="Nombre"
                        formControlName="name"
                        required>
+                <mat-error *ngIf="signUp.get('name').hasError('required')">
+                    Requerido
+                </mat-error>
             </mat-form-field>
         </div>
     </div>
@@ -19,6 +22,29 @@
                        placeholder="Correo Electronico"
                        formControlName="email"
                        required>
+                <mat-error *ngIf="signUp.get('email').hasError('required')">
+                    Requerido
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+        <div class="col-md-4">
+            <mat-form-field class="signInput">
+                <input matInput
+                       placeholder="Número de teléfono"
+                       formControlName="phone"
+                       required>
+                <mat-error *ngIf="signUp.get('phone').hasError('pattern')">
+                    Formato Invalido
+                </mat-error>
+                <mat-error *ngIf="signUp.get('phone').hasError('required')">
+                    Requerido
+                </mat-error>
+                <mat-error *ngIf="signUp.get('phone').hasError('minlength')">
+                    El número de celular debe tener al menos 8 caracteres
+                </mat-error>
             </mat-form-field>
         </div>
     </div>
@@ -31,7 +57,7 @@
                        [type]="hide ? 'password' : 'text'"
                        formControlName="password"
                        required>
-                <button class=""
+                <button class="icon_password"
                         mat-icon-button
                         matSuffix
                         (click)="hide = !hide"
@@ -41,6 +67,9 @@
                         {{hide ? 'visibility_off' : 'visibility'}}
                     </mat-icon>
                 </button>
+                <mat-error *ngIf="signUp.get('password').invalid">
+                    {{ signUp.get('password').hasError('required') ? 'Requirido' : signUp.get('password').hasError('maxlength') ? 'El maximo de caracteres son 20' : 'El minimo de caracteres debe ser de 8'}}
+                </mat-error>
             </mat-form-field>
         </div>
     </div>
@@ -56,6 +85,9 @@
                 <mat-datepicker-toggle matSuffix
                                        [for]="picker"></mat-datepicker-toggle>
                 <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="signUp.get('birthDate').hasError('required')">
+                    Requerido
+                </mat-error>
             </mat-form-field>
         </div>
     </div>
@@ -71,6 +103,9 @@
                         {{idType}}
                     </mat-option>
                 </mat-select>
+                <mat-error *ngIf="signUp.get('idType').hasError('required')">
+                    Requerido
+                </mat-error>
             </mat-form-field>
         </div>
     </div>
@@ -82,6 +117,9 @@
                        placeholder="Número del documento"
                        formControlName="id"
                        required>
+                <mat-error *ngIf="signUp.get('id').hasError('required')">
+                    Requerido
+                </mat-error>
             </mat-form-field>
         </div>
     </div>
@@ -97,6 +135,9 @@
                         {{gender}}
                     </mat-option>
                 </mat-select>
+                <mat-error *ngIf="signUp.get('gender').hasError('required')">
+                    Requerido
+                </mat-error>
             </mat-form-field>
         </div>
     </div>
