@@ -27,6 +27,7 @@ export class DashboardComponent implements OnInit {
   }
 
   public logOut(): void {
+    
     var answer = confirm('Estas seguro de querer salir del Sistema?');
     if(answer){
       this.authService.logOut().then(() => {
