@@ -1,0 +1,38 @@
+<p>list-cars works!</p>
+
+<div class="row justify-content-md-center">
+
+    <div class="col-md-10">
+
+        <div class="container"
+            *ngIf="cars | async; let cars; else loadingCars">
+
+            <div class="row"
+                *ngIf="filterCars(cars, 'available').length > 0; else availableCarsEmpty">
+
+                <div class="col-md-4"
+                    *ngFor="let car of filterCars(cars, 'available')">
+
+                    <app-card-car [car]="car"></app-card-car>
+
+                </div>
+
+                <ng-template #availableCarsEmpty>
+
+                    No hay carros disponibles
+
+                </ng-template>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<ng-template #loadingCars>
+
+    Cargando carros disponibles
+
+</ng-template>

@@ -1,0 +1,41 @@
+<div>
+
+    <div class="row">
+
+        <div class="col-md-12 d-flex align-self-center card-car__image-content">
+
+            <img *ngIf="car.image"
+                class="card-car__image"
+                [src]="car.image" />
+
+            <mat-icon class="card-car__no-image"
+                *ngIf="!car.image">
+                'directions_car'
+            </mat-icon>
+
+        </div>
+
+        <div class="col-md-12">
+
+            <h1>{{ car.brand }}</h1>
+            <p>{{ car.model }}</p>
+            <p>{{ car.enrollment }}</p>
+
+        </div>
+
+    </div>
+
+    <div class="row justify-content-end">
+
+        <div class="col-md-6">
+
+            <button type="button"
+                class="btn btn-outline-success card-car__button">
+                Alquilar
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
