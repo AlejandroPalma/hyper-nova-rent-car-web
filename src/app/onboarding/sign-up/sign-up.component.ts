@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {User} from '../interfaces/user';
-import {AuthService} from '../providers/auth/auth.service';
-import {UserService} from '../providers/user/user.service';
+import {User} from '../../interfaces/user';
+import {AuthService} from '../../providers/auth/auth.service';
+import {UserService} from '../../providers/user/user.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -26,6 +26,8 @@ export class SignUpComponent implements OnInit {
 
   ngOnInit() {
 
+    console.log(this.router.url);
+
     this.signUp = this.signBuilder.group(
       {
         name: new FormControl('', Validators.compose([
@@ -34,6 +36,12 @@ export class SignUpComponent implements OnInit {
         email: new FormControl('', Validators.compose([
           Validators.required,
           Validators.email
+        ])),
+        phone: new FormControl('', Validators.compose([
+          Validators.required,
+          Validators.pattern('\d'),
+          Validators.minLength(8),
+
         ])),
         password: new FormControl('', Validators.compose([
           Validators.required,
@@ -62,6 +70,7 @@ export class SignUpComponent implements OnInit {
     const user: User = {
       name: this.signUp.controls['name'].value,
       email: this.signUp.controls['email'].value,
+      phone: this.signUp.controls['phone'].value,
       password: this.signUp.controls['password'].value,
       birthDate: this.signUp.controls['birthDate'].value,
       idType: this.signUp.controls['idType'].value,
@@ -75,7 +84,7 @@ export class SignUpComponent implements OnInit {
 
       this.userService.setUser(user).then(() => {
 
-        this.router.navigate(['/']);
+        this.router.navigate(['./']);
       });
     });
   }

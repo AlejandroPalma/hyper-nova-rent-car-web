@@ -1,5 +1,4 @@
 import {NgModule} from '@angular/core';
-// firebase
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
@@ -8,8 +7,6 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {environment} from '../environments/environment';
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
-
-
 
 @NgModule({
   declarations: [
