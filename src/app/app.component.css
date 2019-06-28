@@ -1,7 +1,14 @@
 .title-system {
-    font-size: 30px;
+    font-size: 50px;
+    font-family: 'Grand Hotel', cursive;
+    color: #9E2B25;
 }
 
 .login-button {
     width: 100%;
+}
+
+.app__center-buttom {
+    height: max-content;
+    align-self: center;
 }

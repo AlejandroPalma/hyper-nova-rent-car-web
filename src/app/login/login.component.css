@@ -5,7 +5,9 @@
 .icon_auto{
     font-size: 120px; 
     height: 120px;
-    width: 120px;
+    width: max-content;
+    margin-top: 80px;
+    color: #08415C;
 }
 
 .login__button {
