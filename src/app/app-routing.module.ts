@@ -1,21 +1,22 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { AppComponent } from './app.component';
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
 
 
 const appRoutes: Routes = [
 
     {
-        path: '',
-        loadChildren: './login/login.module#LoginModule'
+      path: 'onboarding',
+      loadChildren: './onboarding/onboarding.module#OnboardingModule'
     },
     {
-      path: 'sign-up',
-      loadChildren: './sign-up/sign-up.module#SignUpModule'
-
+      path: 'dashboard',
+      loadChildren: './dashboard/dashboard.module#DashboardModule'
+    },
+    {
+      path: '',
+      redirectTo: '/onboarding',
+      pathMatch: 'full'
     }
-    
-    
 ]
 
 @NgModule({
@@ -23,7 +24,7 @@ const appRoutes: Routes = [
     RouterModule.forRoot(
       appRoutes,
       {
-        enableTracing: true, // <-- debugging purposes only
+        enableTracing: false, // <-- debugging purposes only
       }
     )
   ],
@@ -32,5 +33,3 @@ const appRoutes: Routes = [
   ]
 })
 export class AppRoutingModule { }
-
-

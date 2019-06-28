@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {User} from '../interfaces/user';
-import {AuthService} from '../providers/auth/auth.service';
-import {UserService} from '../providers/user/user.service';
+import {Router} from '@angular/router';
+import {User} from '../../interfaces/user';
+import {AuthService} from '../../providers/auth/auth.service';
+import {UserService} from '../../providers/user/user.service';
 
 @Component({
   selector: 'app-login',
@@ -17,10 +18,13 @@ export class LoginComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private authService: AuthService,
-    private userService: UserService
+    private userService: UserService,
+    private router: Router
   ) { }
 
   ngOnInit() {
+    
+    console.log(this.router.url);
 
     this.loginForm = this.formBuilder.group(
       {
@@ -47,7 +51,9 @@ export class LoginComponent implements OnInit {
 
       this.userService.getByKey(credentials.user.uid).subscribe((user: User) => {
 
-        console.log(user);
+        this.userService.user = user;
+
+        this.router.navigate(['/dashboard']);
       });
     });
   }

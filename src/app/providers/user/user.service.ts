@@ -11,10 +11,21 @@ const tableName: string = '/users';
 export class UserService {
 
   public users: Observable<User>;
+  private loggedUser: User;
 
   constructor(
     private firebaseDatabase: AngularFireDatabase
   ) { }
+
+  set user(user: User) {
+
+    this.loggedUser = user;
+  }
+
+  get user(): User {
+
+    return this.loggedUser;
+  }
 
   public getAll(): Observable<Array<User>> {
 

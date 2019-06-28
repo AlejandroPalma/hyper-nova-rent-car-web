@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
-import {User} from '../interfaces/user';
-import {AuthService} from '../providers/auth/auth.service';
-import {UserService} from '../providers/user/user.service';
+import {User} from '../../interfaces/user';
+import {AuthService} from '../../providers/auth/auth.service';
+import {UserService} from '../../providers/user/user.service';
 
 @Component({
   selector: 'app-sign-up',
@@ -25,6 +25,8 @@ export class SignUpComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+
+    console.log(this.router.url);
 
     this.signUp = this.signBuilder.group(
       {
@@ -82,7 +84,7 @@ export class SignUpComponent implements OnInit {
 
       this.userService.setUser(user).then(() => {
 
-        this.router.navigate(['/']);
+        this.router.navigate(['./']);
       });
     });
   }
