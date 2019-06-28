@@ -1,3 +1,7 @@
-.login-input {
+.login__input {
+    width: 100%;
+}
+
+.login__button {
     width: 100%;
 }
