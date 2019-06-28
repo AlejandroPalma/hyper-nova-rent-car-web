@@ -7,6 +7,7 @@ import {UserService} from '../providers/user/user.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
+
 export class DashboardComponent implements OnInit {
 
   public user: User;
@@ -14,8 +15,11 @@ export class DashboardComponent implements OnInit {
   constructor(private userService: UserService) { }
 
   ngOnInit() {
+    
+    this.user = this.userService.getloggeduser();
 
-    this.user = this.userService.user;
+    console.log(this.user);
+
   }
 
 }
