@@ -36,9 +36,6 @@
                        placeholder="Número de teléfono"
                        formControlName="phone"
                        required>
-                <mat-error *ngIf="signUp.get('phone').hasError('pattern')">
-                    Formato Invalido
-                </mat-error>
                 <mat-error *ngIf="signUp.get('phone').hasError('required')">
                     Requerido
                 </mat-error>

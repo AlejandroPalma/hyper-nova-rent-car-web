@@ -39,9 +39,7 @@ export class SignUpComponent implements OnInit {
         ])),
         phone: new FormControl('', Validators.compose([
           Validators.required,
-          Validators.pattern('\d'),
           Validators.minLength(8),
-
         ])),
         password: new FormControl('', Validators.compose([
           Validators.required,
