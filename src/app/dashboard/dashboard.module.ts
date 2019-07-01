@@ -7,13 +7,15 @@ import {CreateCarComponent} from './create-car/create-car.component';
 import {DashboardRoutingModule} from './dashboard-routing.module';
 import {DashboardComponent} from './dashboard.component';
 import {ListCarsComponent} from './list-cars/list-cars.component';
+import { RentCarComponent } from './rent-car/rent-car.component';
 
 @NgModule({
   declarations: [
     DashboardComponent,
     ListCarsComponent,
     CardCarComponent,
-    CreateCarComponent
+    CreateCarComponent,
+    RentCarComponent
   ],
   imports: [
     CommonModule,
