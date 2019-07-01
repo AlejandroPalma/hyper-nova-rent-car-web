@@ -5,4 +5,6 @@ export interface Car {
     enrollment: string;
     status: string;
     image?: string;
+    year: number;
+    color: string;
 }

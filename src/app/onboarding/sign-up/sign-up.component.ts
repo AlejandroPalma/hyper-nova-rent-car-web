@@ -79,6 +79,7 @@ export class SignUpComponent implements OnInit {
     this.authService.signUp(user).then((credentials: firebase.auth.UserCredential) => {
 
       user.idUser = credentials.user.uid;
+      user.rol = 'guest';
 
       this.userService.setUser(user).then(() => {
 

@@ -14,7 +14,7 @@ const appRoutes: Routes = [
     },
     {
       path: '',
-      redirectTo: '/onboarding',
+      redirectTo: 'onboarding',
       pathMatch: 'full'
     }
 ]

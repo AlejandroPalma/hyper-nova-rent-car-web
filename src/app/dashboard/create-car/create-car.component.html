@@ -1,1 +1,84 @@
-<p>create-car works!</p>
+<form (ngSubmit)="false"
+    [formGroup]="createForm">
+
+    <div class="row justify-content-md-center">
+
+        <div class="col-md-4">
+            <mat-form-field class="create-input">
+                <input matInput
+                    placeholder="Modelo del Vehiculo"
+                    formControlName="model"
+                    required>
+                <mat-error *ngIf="createForm.get('model').hasError('required')">
+                    Requerido
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+
+        <div class="col-md-4">
+            <mat-form-field class="create-input">
+                <input matInput
+                    placeholder="Año del Vehiculo"
+                    formControlName="year"
+                    required>
+                <mat-error *ngIf="createForm.get('year').hasError('required')">
+                    Requerido
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+    
+    <div class="row justify-content-md-center">
+
+        <div class="col-md-4">
+            <mat-form-field class="create-input">
+                <input matInput
+                    placeholder="Placa del Vehiculo"
+                    formControlName="enrollment"
+                    required>
+                <mat-error *ngIf="createForm.get('enrollment').hasError('required')">
+                    Requerido
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+    
+    <div class="row justify-content-md-center">
+
+        <div class="col-md-4">
+            <mat-form-field class="create-input">
+                <input matInput
+                    placeholder="Color del Vehiculo"
+                    formControlName="color"
+                    required>
+                <mat-error *ngIf="createForm.get('color').hasError('required')">
+                    Requerido
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+
+        <div class="col-md-4">
+            <mat-form-field class="create-input">
+                <input matInput
+                    placeholder="Marca del Vehiculo"
+                    formControlName="brand"
+                    required>
+                <mat-error *ngIf="createForm.get('brand').hasError('required')">
+                    Requerido
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+    
+    <button class="btn btn-success"
+        (click)="onSubmit()">
+            Guardar
+    </button>
+
+</form>

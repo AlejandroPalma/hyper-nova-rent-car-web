@@ -2,6 +2,7 @@ import {NgModule} from '@angular/core';
 import {AngularFireModule} from '@angular/fire';
 import {AngularFireAuth} from '@angular/fire/auth';
 import {AngularFireDatabaseModule} from '@angular/fire/database';
+import {MatButtonModule} from '@angular/material/button';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {environment} from '../environments/environment';
@@ -19,7 +20,8 @@ import {UserService} from './providers/user/user.service';
     BrowserAnimationsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebase),
-    AngularFireDatabaseModule
+    AngularFireDatabaseModule,
+    MatButtonModule
   ],
   providers: [
     AngularFireAuth,

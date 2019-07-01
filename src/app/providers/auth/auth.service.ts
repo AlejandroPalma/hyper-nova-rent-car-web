@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/auth';
-import {Router} from '@angular/router';
 import {User} from 'src/app/interfaces/user';
 
 @Injectable({
@@ -10,9 +9,7 @@ export class AuthService {
   
 
   constructor(
-    private firebaseAuth: AngularFireAuth,
-    public afAuth:AngularFireAuth,
-    private router: Router
+    private firebaseAuth: AngularFireAuth
   ) { }
 
   public async signUp(user: User): Promise<firebase.auth.UserCredential> {
@@ -29,9 +26,8 @@ export class AuthService {
       .signInWithEmailAndPassword(email, password);
   }
 
-  public logOut(){
-    return this.afAuth.auth.signOut().then(() => {
-    this.router.navigate(['sign-in']);
-    })
+  public async logOut(): Promise<void> {
+  
+    return this.firebaseAuth.auth.signOut();
   }
 }
