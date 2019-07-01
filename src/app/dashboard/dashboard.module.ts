@@ -1,13 +1,14 @@
 import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
-import {MatIconModule} from '@angular/material';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule} from '@angular/material';
 import {CarService} from '../providers/car/car.service';
 import {CardCarComponent} from './card-car/card-car.component';
 import {CreateCarComponent} from './create-car/create-car.component';
 import {DashboardRoutingModule} from './dashboard-routing.module';
 import {DashboardComponent} from './dashboard.component';
 import {ListCarsComponent} from './list-cars/list-cars.component';
-import { RentCarComponent } from './rent-car/rent-car.component';
+import {RentCarComponent} from './rent-car/rent-car.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,11 @@ import { RentCarComponent } from './rent-car/rent-car.component';
   imports: [
     CommonModule,
     DashboardRoutingModule,
-    MatIconModule
+    MatFormFieldModule,
+    MatIconModule,
+    MatButtonModule,
+    ReactiveFormsModule,
+    MatInputModule
   ],
   providers: [
     CarService
