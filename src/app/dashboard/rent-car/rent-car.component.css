@@ -1,0 +1,21 @@
+.consultCar {
+    width: 100%
+}
+
+.createTable {
+    border: 1px solid;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.rent-car__form-field {
+    width: 75%;
+}
+
+.rent__title {
+    font-size: 25px;
+    align-self: center;
+    font-family: 'Abel', sans-serif;
+    font-weight: bold;
+    padding: 8px;
+}

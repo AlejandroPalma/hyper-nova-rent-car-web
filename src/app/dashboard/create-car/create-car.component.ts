@@ -50,8 +50,6 @@ export class CreateCarComponent implements OnInit {
 
     this.carService.setCar(car).then((carResponse: Car) => {
 
-      console.log(carResponse);
-
       this.router.navigate(['./dashboard/list']);
     });
   }

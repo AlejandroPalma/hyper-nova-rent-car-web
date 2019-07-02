@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {NavigationExtras, Router} from '@angular/router';
 import {Observable} from 'rxjs';
 import {Car} from 'src/app/interfaces/car';
 import {CarService} from 'src/app/providers/car/car.service';
@@ -13,6 +14,7 @@ export class ListCarsComponent implements OnInit {
   public cars: Observable<Array<Car>>;
 
   constructor(
+    private router: Router,
     private carService: CarService
   ) { }
 
@@ -34,6 +36,17 @@ export class ListCarsComponent implements OnInit {
 
       return car.status === status;
     });
+  }
+
+  public rentACar(car: Car): void {
+
+    const extraInfo: NavigationExtras = {
+      queryParams: {
+        carId: car.carId
+      }
+    };
+
+    this.router.navigate(['dashboard/rent-car'], extraInfo);
   }
 
 }
