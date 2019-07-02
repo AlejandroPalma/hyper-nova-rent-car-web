@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {Car} from 'src/app/interfaces/car';
 
 @Component({
@@ -9,6 +9,7 @@ import {Car} from 'src/app/interfaces/car';
 export class CardCarComponent {
 
   @Input() public car: Car;
+  @Output() public rentCar: EventEmitter<Car> = new EventEmitter<Car>();
 
   constructor() { }
 }
