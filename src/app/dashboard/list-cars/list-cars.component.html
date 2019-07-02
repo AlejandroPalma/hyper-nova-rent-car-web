@@ -1,5 +1,3 @@
-<p>list-cars works!</p>
-
 <div class="row justify-content-md-center">
 
     <div class="col-md-10">
@@ -19,17 +17,19 @@
                 <div class="col-md-4"
                     *ngFor="let car of filterCars(cars, 'available')">
 
-                    <app-card-car [car]="car"></app-card-car>
+                    <app-card-car [car]="car"
+                        (rentCar)="rentACar($event)"></app-card-car>
 
                 </div>
 
-                <ng-template #availableCarsEmpty>
-
-                    No hay carros disponibles
-
-                </ng-template>
-
+                
             </div>
+            
+            <ng-template #availableCarsEmpty>
+
+                No hay carros disponibles
+
+            </ng-template>
 
             <div class="row"
                 *ngIf="filterCars(cars, 'rented').length > 0; else rentedCarsEmpty">

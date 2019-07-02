@@ -2,8 +2,10 @@ import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule} from '@angular/material';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 import {CarService} from '../providers/car/car.service';
+import {RentService} from '../providers/rent/rent.service';
 import {CardCarComponent} from './card-car/card-car.component';
 import {CreateCarComponent} from './create-car/create-car.component';
 import {DashboardRoutingModule} from './dashboard-routing.module';
@@ -27,10 +29,12 @@ import {RentCarComponent} from './rent-car/rent-car.component';
     MatButtonModule,
     ReactiveFormsModule,
     MatInputModule,
-    NgxSkeletonLoaderModule
+    NgxSkeletonLoaderModule,
+    MatCheckboxModule
   ],
   providers: [
-    CarService
+    CarService,
+    RentService
   ]
 })
 export class DashboardModule { }
