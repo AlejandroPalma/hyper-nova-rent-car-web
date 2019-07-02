@@ -1,3 +1,7 @@
+.card-car__content {
+    box-shadow: 0 5px 12px 1px rgba(0, 0, 0, 0.5);
+}
+
 .card-car__image-content {
     width: 100%;
     height: 160px;

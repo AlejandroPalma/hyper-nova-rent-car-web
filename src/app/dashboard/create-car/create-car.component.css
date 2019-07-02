@@ -1,3 +1,29 @@
 .create-input {
     width: 100%;
 }
+
+.create-car__avatar {
+    height: 150px;
+    overflow: hidden;
+    display: flex;
+    border-radius: 4px;
+    border: solid 1px;
+}
+
+.create-car__icon-image {
+    margin: 0 auto;
+    align-self: center;
+    font-size: 24px;
+}
+
+.create-car__image {
+    width: 100%;
+}
+
+.create-car__no-border {
+    border: none;
+}
+
+.create-car__button {
+    width: 100%;
+}

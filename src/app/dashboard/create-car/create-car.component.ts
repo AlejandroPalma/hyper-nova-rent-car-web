@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChildren} from '@angular/core';
 import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {Router} from '@angular/router';
 import {CarService} from 'src/app/providers/car/car.service';
@@ -12,6 +12,8 @@ import {Car} from '../../interfaces/car';
 export class CreateCarComponent implements OnInit {
 
   public createForm: FormGroup;
+  public image: string | ArrayBuffer;
+  @ViewChildren('file') public file: Event;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -37,6 +39,23 @@ export class CreateCarComponent implements OnInit {
     });
   }
 
+  public changeListener($event: Event): void {
+
+    this.readThis($event.target);
+  }
+
+  public readThis(inputValue: any): void {
+    const file: File = inputValue.files[0];
+    const myReader: FileReader = new FileReader();
+
+    myReader.onloadend = (e) => {
+
+      this.image = myReader.result;
+    };
+
+    myReader.readAsDataURL(file);
+  }
+
   public onSubmit(): void {
 
     const car: Car = {
@@ -47,6 +66,11 @@ export class CreateCarComponent implements OnInit {
       brand: this.createForm.controls['brand'].value,
       status: 'available'
     };
+
+    if (this.image) {
+
+      car.image = this.image.toString();
+    }
 
     this.carService.setCar(car).then((carResponse: Car) => {
 

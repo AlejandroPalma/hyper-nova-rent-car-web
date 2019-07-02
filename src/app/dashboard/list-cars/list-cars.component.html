@@ -8,6 +8,12 @@
             <div class="row"
                 *ngIf="filterCars(cars, 'available').length > 0; else availableCarsEmpty">
 
+                <div class="col-md-12">
+                    <h1 class="list-cars__title list-cars__title-available">
+                        Autos disponibles
+                    </h1>
+                </div>
+
                 <div class="col-md-4"
                     *ngFor="let car of filterCars(cars, 'available')">
 
@@ -25,6 +31,30 @@
 
             </ng-template>
 
+            <div class="row"
+                *ngIf="filterCars(cars, 'rented').length > 0; else rentedCarsEmpty">
+
+                <div class="col-md-12">
+                    <h1 class="list-cars__title list-cars__title-rented">
+                        Autos rentados
+                    </h1>
+                </div>
+
+                <div class="col-md-4"
+                    *ngFor="let car of filterCars(cars, 'rented')">
+
+                    <app-card-car [car]="car"></app-card-car>
+
+                </div>
+
+                <ng-template #rentedCarsEmpty>
+
+                    No hay carros rentados por los momentos
+
+                </ng-template>
+
+            </div>
+
         </div>
 
     </div>
@@ -33,6 +63,113 @@
 
 <ng-template #loadingCars>
 
-    Cargando carros disponibles
+    <div class="row">
+
+        <div class="col-md-4">
+
+            <div class="row justify-content-md-center">
+
+                <div class="col-md-auto">
+
+                    <ngx-skeleton-loader class="list-cars__circle"
+                        count="1"
+                        appearance="circle"
+                        [theme]="{ width: '100px', height: '100px' }"></ngx-skeleton-loader>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-8">
+
+                    <ngx-skeleton-loader class="list-cars__row"
+                        count="1"></ngx-skeleton-loader>
+
+                </div>
+
+                <div class="col-md-12">
+
+                    <ngx-skeleton-loader class="list-cars__row"
+                        count="1"></ngx-skeleton-loader>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="row justify-content-md-center">
+
+                <div class="col-md-auto">
+
+                    <ngx-skeleton-loader class="list-cars__circle"
+                        count="1"
+                        appearance="circle"
+                        [theme]="{ width: '100px', height: '100px' }"></ngx-skeleton-loader>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-8">
+
+                    <ngx-skeleton-loader class="list-cars__row"
+                        count="1"></ngx-skeleton-loader>
+
+                </div>
+
+                <div class="col-md-12">
+
+                    <ngx-skeleton-loader class="list-cars__row"
+                        count="1"></ngx-skeleton-loader>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="col-md-4">
+
+            <div class="row justify-content-md-center">
+
+                <div class="col-md-auto">
+
+                    <ngx-skeleton-loader class="list-cars__circle"
+                        count="1"
+                        appearance="circle"
+                        [theme]="{ width: '100px', height: '100px' }"></ngx-skeleton-loader>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-md-8">
+
+                    <ngx-skeleton-loader class="list-cars__row"
+                        count="1"></ngx-skeleton-loader>
+
+                </div>
+
+                <div class="col-md-12">
+
+                    <ngx-skeleton-loader class="list-cars__row"
+                        count="1"></ngx-skeleton-loader>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
 
 </ng-template>
