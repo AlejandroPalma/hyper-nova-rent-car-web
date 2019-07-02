@@ -4,17 +4,17 @@
         Hypernova Renta de Vehiculos
     </div>
 
-        <div class="p-2 app__center-icon">
-            <i class="fas fa-user"></i>
-        </div>
+    <div class="p-2 app__center-icon">
+        <i class="fas fa-user"></i>
+    </div>
 
-        <div class="user__Info p-2">
-            Bienvenido <br> {{user.email}}
-        </div>
+    <div class="user__Info p-2">
+        Bienvenido <br> {{user.email}}
+    </div>
 
-        <div class="p-2 app__center-icon">
-                <i class="fas fa-sign-out-alt icon__cursor"
-                    (click)="logOut()"></i>
+    <div class="p-2 app__center-icon">
+        <i class="fas fa-sign-out-alt icon__cursor"
+            (click)="logOut()"></i>
     </div>
 
 </div>
@@ -24,7 +24,8 @@
     <button mat-button
         color="primary"
         class="button-create-car"
-        routerLink="./create-car">Registrar Vehiculo</button>
+        routerLink="./create-car"
+        *ngIf="user.rol === 'admin'">Registrar Vehiculo</button>
 </div>
 
 <router-outlet></router-outlet>

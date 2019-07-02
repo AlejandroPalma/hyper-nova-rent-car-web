@@ -1,0 +1,8 @@
+.list-cars__row {
+    height: 5px;
+}
+
+.list-cars__circle {
+    width: 100px;
+    height: 100px;
+}

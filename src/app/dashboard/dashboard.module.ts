@@ -2,6 +2,7 @@ import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule, MatFormFieldModule, MatIconModule, MatInputModule} from '@angular/material';
+import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 import {CarService} from '../providers/car/car.service';
 import {CardCarComponent} from './card-car/card-car.component';
 import {CreateCarComponent} from './create-car/create-car.component';
@@ -25,7 +26,8 @@ import {RentCarComponent} from './rent-car/rent-car.component';
     MatIconModule,
     MatButtonModule,
     ReactiveFormsModule,
-    MatInputModule
+    MatInputModule,
+    NgxSkeletonLoaderModule
   ],
   providers: [
     CarService
